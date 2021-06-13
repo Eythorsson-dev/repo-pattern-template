@@ -1,0 +1,68 @@
+﻿@page "~/Account/Login"
+@model template.Web.Pages.LoginModel
+@addTagHelper *, aspnetcore-vuecomponents
+
+@{ ViewData["Title"] = "Login"; Layout = "_Layout.Blank"; }
+
+
+
+@section Scripts {
+    <environment names="Development">
+        @Bundler.Unpack(HostingEnvironment.ContentRootPath, "Pages/Account/Login/login.bundle.js")
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="Pages/Account/Login/login.bundle.js" asp-append-version="true" />
+    </environment>
+}
+
+
+<div id="app" class="w-100 h-100">
+    <div class="d-flex justify-content-center align-items-center w-screen h-screen">
+        <div class="rounded-md shadow p-4 bg-white-pure mw-xs" v-on-submit="login">
+            <h3 class="mb-0">Welcome Back</h3>
+            <p class="text-gray-400 ">See live stats of Wise Consulting software solutions!</p>
+
+            <div>
+                <label for="Email" class="form-label">Email</label>
+                <input type="text" class="form-control" id="Email" placeholder="John@@example.com" v-model="request.Email" required="required">
+            </div>
+            <div class="mt-2">
+                <div class="d-flex justify-content-between align-items-start">
+                    <label for="password" class="form-label">Password</label>
+                    <button type="button" class="btn btn-sm btn-link p-0" v-on:click="showResetPasswordModal">Forgot Password?</button>
+                </div>
+                <input type="password" class="form-control form-control-sm" id="password" placeholder="Pas***rd" v-model="request.Password" autocomplete="on" required="required">
+            </div>
+
+            <div class="form-check mt-2">
+                <input type="checkbox" class="form-check-input" id="RememberMe" v-model="request.RememberMe">
+                <label class="form-check-label" for="RememberMe">Remember Me</label>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3 w-100">Login</button>
+            <a href="/account/register" class="btn btn-secondary mt-3 w-100">Register</a>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" ref="passwordResetModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" v-on-submit="resetPassword">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Reset Password</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Enter the email associated with your account and we'll send an email with instructions to reset your password.</p>
+                    <div>
+                        <label for="Email_PasswordReset" class="form-label">Email</label>
+                        <input type="text" class="form-control" id="Email_PasswordReset" placeholder="John@@example.com" v-model="resetRequest.Email" required="required">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

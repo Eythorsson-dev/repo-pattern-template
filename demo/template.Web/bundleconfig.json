@@ -1,0 +1,116 @@
+[
+  // UNAUTHORISED
+  // UNAUTHORISED
+  {
+    "outputFileName": "Pages/Account/Login/login.bundle.js",
+    "inputFiles": [
+      "wwwroot/lib/vue/vue.js",
+      "wwwroot/lib/axios/axios.js",
+      "wwwroot/lib/bootstrap-5.0.1/js/bootstrap.js",
+
+      "wwwroot/js/handlers/feedback.js",
+      "wwwroot/js/services/apiService.js",
+      "wwwroot/js/directives/OnSubmit.js",
+      "wwwroot/js/directives/SubmitValidator.js",
+
+
+      "Pages/Account/Login/login.js"
+    ]
+  },
+  {
+    "outputFileName": "Pages/Account/Register/register.bundle.js",
+    "inputFiles": [
+      "wwwroot/lib/vue/vue.js",
+      "wwwroot/lib/axios/axios.js",
+
+      "wwwroot/js/handlers/feedback.js",
+      "wwwroot/js/services/apiService.js",
+      "wwwroot/js/directives/OnSubmit.js",
+      "wwwroot/js/directives/SubmitValidator.js",
+
+
+      "Pages/Account/Register/register.js"
+    ]
+  },
+  {
+    "outputFileName": "Pages/Account/PasswordReset/passwordReset.bundle.js",
+    "inputFiles": [
+      "wwwroot/lib/vue/vue.js",
+      "wwwroot/lib/axios/axios.js",
+      "wwwroot/lib/bootstrap-5.0.1/js/bootstrap.js",
+
+      "wwwroot/js/handlers/feedback.js",
+      "wwwroot/js/services/apiService.js",
+      "wwwroot/js/directives/OnSubmit.js",
+      "wwwroot/js/directives/SubmitValidator.js",
+
+
+      "Pages/Account/PasswordReset/passwordReset.js"
+    ]
+  },
+  {
+    "outputFileName": "Pages/Account/AccountVerify/accountVerify.bundle.js",
+    "inputFiles": [
+      "wwwroot/lib/vue/vue.js",
+      "wwwroot/lib/axios/axios.js",
+      "wwwroot/lib/bootstrap-5.0.1/js/bootstrap.js",
+
+      "wwwroot/js/handlers/feedback.js",
+      "wwwroot/js/services/apiService.js",
+      "wwwroot/js/directives/OnSubmit.js",
+      "wwwroot/js/directives/SubmitValidator.js",
+
+
+      "Pages/Account/AccountVerify/accountVerify.js"
+    ]
+  },
+
+  // AUTHORIZED
+  // AUTHORIZED
+  {
+    "outputFileName": "wwwroot/js/site.bundle.js",
+    "inputFiles": [
+      "wwwroot/lib/dayjs/dayjs.min.js",
+      "wwwroot/lib/axios/axios.js",
+      "wwwroot/lib/dayjs/dayjs.min.js",
+      "wwwroot/lib/vue/vue.js",
+      "wwwroot/lib/vCalendar/vCalendar.umd.min.js",
+
+      // BOOTSTRAP - REQUIRED
+      "wwwroot/lib/popper-2.9.2/popper.min.js",
+      "wwwroot/lib/bootstrap-5.0.1/js/bootstrap.js",
+
+      // CUSTOM SCRIPS
+      // CUSTOM SCRIPS
+      "wwwroot/js/components/table/sortableColumn.js",
+      "wwwroot/js/components/datepicker/datepicker.js",
+
+      "wwwroot/js/directives/OnSubmit.js",
+      "wwwroot/js/directives/SubmitValidator.js",
+
+      "wwwroot/js/handlers/feedback.js",
+      "wwwroot/js/handlers/keyboardShortcuts.js",
+      "wwwroot/js/handlers/loadHandler.js",
+      "wwwroot/js/handlers/orderByHandler.js",
+      "wwwroot/js/handlers/pagination.js",
+
+      "wwwroot/js/services/apiService.js",
+
+      "wwwroot/js/site.js"
+    ]
+  },
+  {
+    "outputFileName": "Pages/Dashboard/dashboard.bundle.js",
+    "inputFiles": [
+      "Pages/Dashboard/dashboard.js",
+
+      "wwwroot/js/components/widget/widgetPieTimer.js",
+    ]
+  },
+  {
+    "outputFileName": "Pages/Order/order.bundle.js",
+    "inputFiles": [
+      "Pages/Order/order.js"
+    ]
+  }
+]

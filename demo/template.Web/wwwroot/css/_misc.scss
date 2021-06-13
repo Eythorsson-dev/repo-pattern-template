@@ -1,0 +1,88 @@
+@import "_variables.scss";
+
+.bg-white-pure {
+    background: $white-pure !important;
+}
+
+.h-screen { height: 100vh; }
+
+.h-0\.8rem { height: 0.8rem;}
+.h-1rem { height: 1rem; }
+.w-2rem { width: 2rem; }
+.w-3rem { width: 3rem; }
+.w-screen { width: 100vw; }
+
+.cursor-pointer { cursor: pointer;}
+
+.text-gray-300 { color: $gray-300; }
+
+body { 
+    overflow: hidden;
+}
+
+.nav-link-gray-400 {
+    color: $gray-400;
+}
+
+
+.modal-dialog {
+    .close {
+        color: $gray-400;
+        border: none;
+        font-size: 1.125rem;
+
+        &:hover,
+        &:focus {
+            color: $gray-500;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
+}
+
+
+svg.pie-timer {
+    display: block;
+    opacity: 0.75;
+    transition: opacity 0.2s;
+
+    &:hover {
+        opacity: 1;
+        transition: opacity 0.1s;
+    }
+
+    .pie-timer-loader {
+        fill: currentColor;
+    }
+
+    .pie-timer-border {
+        fill: currentColor;
+    }
+}
+
+
+
+
+/*** Logo ***/
+/*** Logo ***/
+@font-face {
+    font-family: 'Montserrat';
+    src: url(../fonts/Montserrat/Montserrat-SemiBold.ttf) format('truetype');
+}
+
+.icon-myBooking:before {
+    content: url("data:image/svg+xml,%3Csvg viewBox='0 0 126 89' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M123.307 20.412L105.224 2.225C104.166 1.16087 102.82 0.580437 101.281 0.580437H44.1481H6.05953C2.98167 0.580437 0.577087 3.09565 0.577087 6.09457V61.8163C0.577087 64.3315 1.53892 66.75 3.3664 68.4913L20.1023 85.3239C21.8336 87.0652 24.2382 88.1293 26.7389 88.1293H44.1481C47.2259 88.1293 49.6305 85.6141 49.6305 82.6152V68.975H120.325C123.403 68.975 125.808 66.4598 125.808 63.4609V25.0554C125.904 23.1207 124.846 21.3793 123.307 20.412ZM114.843 57.85H49.6305V11.7054H99.0687L114.939 27.6674V57.85H114.843ZM31.6443 34.6326C31.6443 38.4054 28.6626 41.4044 24.9114 41.4044C21.1603 41.4044 18.1786 38.4054 18.1786 34.6326C18.1786 30.8598 21.1603 27.8609 24.9114 27.8609C28.6626 27.8609 31.6443 30.8598 31.6443 34.6326Z' fill='%23009383'/%3E%3C/svg%3E");
+    display: block;
+    width: 2rem;
+    margin-right: 0.5rem;
+}
+
+.font-myBooking {
+    font-family: 'Montserrat' !important;
+    color: #009383;
+}
+
+.icon-myBooking.font-myBooking {
+    display: flex;
+    align-items: center;
+}

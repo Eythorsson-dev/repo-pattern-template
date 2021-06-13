@@ -1,0 +1,17 @@
+﻿@page "~/"
+@model template.Web.Pages.DashboardModel
+@addTagHelper *, aspnetcore-vuecomponents
+@{ ViewData["Title"] = "Dashboard"; }
+
+@section Scripts {
+    <environment names="Development">
+        @Bundler.Unpack(HostingEnvironment.ContentRootPath, "Pages/Dashboard/dashboard.bundle.js")
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="Pages/Dashboard/dashboard.bundle.js" asp-append-version="true" />
+    </environment>
+}
+
+<div id="app">
+
+</div>

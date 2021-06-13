@@ -1,0 +1,22 @@
+﻿.btn-primary {
+    color: $white !important;
+}
+
+.input-error {
+    color: $danger;
+    border-color: $danger;
+    background: lighten($danger, 30%);
+    box-shadow: inset 0 0 4px 0px lighten($danger, 20%);
+}
+
+.form-control.form-control-dark {
+    background: lighten($black, 2%);
+    border-color: lighten($black, 10%);
+    color: lighten($black, 50%);
+
+    &:focus {
+        background: lighten($black, 2%);
+        border-color: lighten($black, 15%);
+        color: lighten($black, 50%);
+    }
+}

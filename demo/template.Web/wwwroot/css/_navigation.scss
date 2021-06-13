@@ -1,0 +1,171 @@
+@import "_variables.scss";
+
+
+#sidebar {
+    width: 280px;
+    transition: width $sidebar-animation-speed;
+
+    > div:first-child {
+        > a[href] > .title {
+            display: inline-block;
+            transition: opacity $sidebar-animation-speed ease-out, width $sidebar-animation-speed;
+        }
+
+        > button#btn-sidebar-collapse {
+            > i {
+                text-align: center;
+                display: inline-block;
+                width: $sidebar-icon-width;
+            }
+        }
+    }
+
+    ul.nav {
+        > li {
+            > a[href] {
+                width: 100%;
+                display: flex;
+                align-items: center;
+
+                > i {
+                    text-align: center;
+                    display: inline-block;
+                    width: $sidebar-icon-width;
+                }
+
+                > span {
+                    display: inline-block;
+                    transition: opacity $sidebar-animation-speed ease-out, width $sidebar-animation-speed;
+                }
+            }
+
+            > button.btn-toggle[data-bs-toggle="collapse"] {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                color: $gray-300;
+
+                &:after {
+                    width: 1.25em;
+                    line-height: 0;
+                    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23D1D5DB' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3E%3C/svg%3E");
+                    transition: transform .35s ease;
+                    transform-origin: .5em 50%;
+                }
+
+                &[aria-expanded="true"]:after {
+                    transform: rotate( 90deg );
+                }
+
+                > div {
+                    > i {
+                        text-align: center;
+                        display: inline-block;
+                        width: $sidebar-icon-width;
+                    }
+
+                    > span {
+                        display: inline-block;
+                        transition: opacity $sidebar-animation-speed ease-out, width $sidebar-animation-speed;
+                    }
+                }
+
+                & ~ .dropdown {
+                    display: none
+                }
+
+                & ~ .collapse > ul, & ~ .collapsing > ul {
+                    margin-left: $sidebar-icon-width !important;
+                    border-left: 2px solid lighten($dark, 30%);
+
+                    > li {
+                        margin-left: $sidebar-icon-width / 2;
+                    }
+                }
+            }
+        }
+    }
+
+    > div.dropdown:last-child {
+        > #ddmUser {
+
+            > strong {
+                transition: opacity $sidebar-animation-speed ease-out, width $sidebar-animation-speed;
+            }
+        }
+    }
+
+    &.minimized {
+        transition: width $sidebar-animation-speed;
+        width: $sidebar-padding-x * 2 + $sidebar-icon-width;
+
+        > div:first-child {
+            justify-content: center !important;
+
+            > a[href] > .title {
+                transition: opacity $sidebar-animation-speed ease-out, width $sidebar-animation-speed;
+                overflow: hidden;
+                opacity: 0;
+                width: 0;
+            }
+        }
+
+        ul.nav {
+            > li {
+                > a[href] {
+                    > span {
+                        transition: opacity $sidebar-animation-speed ease-out, width $sidebar-animation-speed;
+                        overflow: hidden;
+                        opacity: 0;
+                        /*height: 0;*/
+                        width: 0;
+                    }
+                }
+
+                > button.btn-toggle[data-bs-toggle="collapse"] {
+                    /* HIDE THE COLLASEABLE CONTENT, AND USE THE DROPLEFT INSTEAD */
+                    display: none;
+
+                    & ~ .collapse {
+                        display: none;
+                    }
+
+                    & ~ .dropdown {
+                        display: block;
+
+                        > a[href] {
+                            width: $sidebar-icon-width;
+                            box-sizing: content-box;
+
+                            &:after {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        > div.dropdown:last-child {
+            > #ddmUser {
+                justify-content: center;
+
+                > img {
+                    margin-right: 0 !important;
+                }
+
+                > strong {
+                    transition: opacity $sidebar-animation-speed ease-out, width $sidebar-animation-speed;
+                    overflow: hidden;
+                    opacity: 0;
+                    height: 0;
+                    width: 0;
+                }
+
+                &:after {
+                    display: none;
+                }
+            }
+        }
+    }
+}
