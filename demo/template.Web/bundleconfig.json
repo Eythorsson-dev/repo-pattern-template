@@ -104,7 +104,7 @@
     "inputFiles": [
       "Pages/Dashboard/dashboard.js",
 
-      "wwwroot/js/components/widget/widgetPieTimer.js",
+      "wwwroot/js/components/widget/widgetPieTimer.js"
     ]
   },
   {
