@@ -28,3 +28,12 @@ The easies way to setup the database without data is to use the included databas
 ## Run the application
 In the solution explorer (Visual Studio) right click on the template.Web project and select it as the startup project.
 After having choosen template.Web, run the applicaiton.
+
+
+
+
+TODO
+ - Add Permission support
+ - Add Release enviroment
+ - Multi-Client / User specific
+ - Datepicker: Range, min date, max date
