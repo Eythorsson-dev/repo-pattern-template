@@ -35,6 +35,7 @@ namespace template.Core.Repository.User
 
             if (!request.UserNameExact.Empty()) searchParam.Add("U.[UserName] = @UserNameExact");
             if (!request.EmailExact.Empty()) searchParam.Add("U.[Email] = @EmailExact");
+            if (!request.NormalizedEmail.Empty()) searchParam.Add("U.[NormalizedEmail] = @NormalizedEmail");
 
             if (!request.UserName.Empty()) searchParam.Add("U.[UserName] LIKE '%' + @UserName + '%'");
             if (!request.FirstName.Empty()) searchParam.Add("U.[FirstName] LIKE '%' + @FirstName + '%'");
