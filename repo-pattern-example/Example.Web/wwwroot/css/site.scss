@@ -1,0 +1,13 @@
+﻿@import "../lib/bootstrap-icons/bootstrap-icons.css";
+@import "./_customFontAwsome.scss";
+@import "_customBootstrap.scss";
+@import "../lib/jquery.analog-clock/css/main.css";
+
+@import "_navigation.scss";
+@import "_input.scss";
+@import "_table.scss";
+@import "_misc.scss";
+
+html {
+    font-size: 14px !important;
+}

@@ -1,0 +1,114 @@
+﻿@import "_variables.scss";
+
+
+
+$body-bg: $gray-50;
+$body-color: $gray-600;
+
+
+$theme-colors: ( "primary": $primary, "secondary": $gray-200, "success": $success, "warning": $warning, "danger": $danger, "dark": $dark, "gray-100": $gray-100, "gray-400": $gray-400);
+
+$grid-breakpoints: ( xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1300px );
+
+// UTILITIES
+$utilities: ( "maxWidth": ( property: "max-width", class: "mw", values: ( xs: 476px, sm: 576px, md: 768px, lg: 992px, xl: 1300px ) ) );
+$utilities: map-merge( $utilities, ( "borderRadius": ( property: "border-radius", class: "rounded", values: ( sm: 3px, md: 5px, lg: 8px ) ) ));
+
+$grid-gutter-width: 6px;
+
+$font-size-base: 1rem;
+$font-size-sm: $font-size-base * .985 !default;
+
+$paragraph-margin-bottom: .5rem;
+
+// INPUT
+$input-color: $gray-700;
+$input-bg: lighten($white, 10%);
+$input-border-color: $gray-300;
+$input-placeholder-color: $gray-400;
+
+$input-disabled-bg: $gray-150;
+
+// DROPDOWN
+$dropdown-link-color: $gray-700;
+$dropdown-link-hover-color: $primary;
+$dropdown-link-hover-bg: lighten($primary, 50%);
+$dropdown-item-padding-x: .8rem;
+$dropdown-link-disabled-color: $gray-400;
+
+
+// MODAL
+$modal-xl: 1440px !default;
+$modal-lg: 980px !default;
+$modal-md: 500px !default;
+$modal-sm: 300px !default;
+
+
+// SPINNERS
+$spinner-width: 1rem;
+$spinner-height: $spinner-width;
+$spinner-vertical-align: -.1em;
+$spinner-border-width: .2em;
+$spinner-animation-speed: .75s;
+
+$spinner-width-sm: 1rem;
+$spinner-height-sm: $spinner-width-sm;
+$spinner-border-width-sm: .2em;
+
+
+// TABLE
+$table-cell-padding-y: .5rem;
+$table-cell-padding-x: .5rem;
+$table-cell-padding-y-sm: .25rem;
+$table-cell-padding-x-sm: .25rem;
+
+$table-cell-vertical-align: middle;
+
+/*$table-border-color: $white;*/
+/*$table-striped-bg-factor: .75;*/
+/*$table-striped-bg: rgba($gray-, $table-striped-bg-factor);*/
+
+
+// Required
+@import "../lib/bootstrap-5.0.1/scss/functions";
+@import "../lib/bootstrap-5.0.1/scss/variables";
+@import "../lib/bootstrap-5.0.1/scss/mixins";
+@import "../lib/bootstrap-5.0.1/scss/utilities";
+
+// Optional
+@import "../lib/bootstrap-5.0.1/scss/root";
+@import "../lib/bootstrap-5.0.1/scss/reboot";
+@import "../lib/bootstrap-5.0.1/scss/type";
+@import "../lib/bootstrap-5.0.1/scss/images";
+@import "../lib/bootstrap-5.0.1/scss/containers";
+@import "../lib/bootstrap-5.0.1/scss/grid";
+@import "../lib/bootstrap-5.0.1/scss/tables";
+@import "../lib/bootstrap-5.0.1/scss/forms";
+@import "../lib/bootstrap-5.0.1/scss/buttons";
+@import "../lib/bootstrap-5.0.1/scss/transitions";
+@import "../lib/bootstrap-5.0.1/scss/dropdown";
+@import "../lib/bootstrap-5.0.1/scss/button-group";
+@import "../lib/bootstrap-5.0.1/scss/nav";
+@import "../lib/bootstrap-5.0.1/scss/navbar";
+@import "../lib/bootstrap-5.0.1/scss/card";
+@import "../lib/bootstrap-5.0.1/scss/accordion";
+@import "../lib/bootstrap-5.0.1/scss/breadcrumb";
+@import "../lib/bootstrap-5.0.1/scss/pagination";
+@import "../lib/bootstrap-5.0.1/scss/badge";
+@import "../lib/bootstrap-5.0.1/scss/alert";
+@import "../lib/bootstrap-5.0.1/scss/progress";
+@import "../lib/bootstrap-5.0.1/scss/list-group";
+@import "../lib/bootstrap-5.0.1/scss/close";
+@import "../lib/bootstrap-5.0.1/scss/toasts";
+@import "../lib/bootstrap-5.0.1/scss/modal";
+@import "../lib/bootstrap-5.0.1/scss/tooltip";
+@import "../lib/bootstrap-5.0.1/scss/popover";
+@import "../lib/bootstrap-5.0.1/scss/carousel";
+@import "../lib/bootstrap-5.0.1/scss/spinners";
+@import "../lib/bootstrap-5.0.1/scss/offcanvas";
+
+// Helpers
+@import "../lib/bootstrap-5.0.1/scss/helpers";
+
+// Utilities
+@import "../lib/bootstrap-5.0.1/scss/utilities/api";

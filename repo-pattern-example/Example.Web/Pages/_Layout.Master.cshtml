@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - template</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body class="d-flex">
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark h-screen" id="sidebar">
+        <div class="d-flex align-items-center justify-content-between text-white">
+            <a href="/" class="d-flex align-items-center text-white text-decoration-none">
+                @*<svg class="bi me-2" width="40" height="32"><use xlink:href=""></use></svg>*@
+                <span class="fs-4 title">template</span>
+            </a>
+            <button type="button" class="btn btn-sm btn-link" id="btn-sidebar-collapse">
+                <i class="bi bi-arrow-left-square"></i>
+            </button>
+        </div>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li>
+                <a href="/" class="nav-link active">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <button class="btn btn-toggle align-items-center rounded collapsed nav-link" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+                    <div class="d-flex">
+                        <i class="bi bi-clock-history"></i>
+                        <span>Orders</span>
+                    </div>
+                </button>
+                <div class="collapse" id="orders-collapse">
+                    <ul class="btn-toggle-nav list-unstyled">
+                        <li>
+                            <a href="/order" class="nav-link">
+                                <span>History</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="container">
+        <main role="main" class="p-3 overflow-auto h-screen">
+            @RenderBody()
+        </main>
+    </div>
+
+    <div id="globalModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"></h4>
+                    <button type="button" class="close bg-transparent" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <environment names="Development">
+        @Bundler.Unpack(HostingEnvironment.ContentRootPath, "js/site.bundle.js")
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="js/site.bundle.js" asp-append-version="true" />
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

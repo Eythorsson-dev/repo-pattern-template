@@ -1,0 +1,155 @@
+﻿@page "~/order"
+@model Example.Web.Pages.OrderModel
+@addTagHelper *, aspnetcore-vuecomponents
+@{ ViewData["Title"] = "Orders"; }
+
+@section Scripts {
+    <environment names="Development">
+        @Bundler.Unpack(HostingEnvironment.ContentRootPath, "Pages/Order/order.bundle.js")
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="Pages/Order/order.bundle.js" asp-append-version="true" />
+    </environment>
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/">Order</a></li>
+        <li class="breadcrumb-item active" aria-current="page">History</li>
+    </ol>
+</nav>
+
+<div id="app">
+    <div class="row">
+        <h2 class="text-gray-300"><i>Order History</i></h2>
+        <div class="d-flex justify-content-between">
+            <i class="text-gray-400">Showing {{order.items.length}} of {{order.TotalNumberOfItems||0}}</i>
+            <button type="button" class="btn btn-sm btn-primary d-flex" v-on:click="createNewOrder">
+                <i class="bi bi-plus h5 mb-0"></i>
+                <span>New Order</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="table-responsive mt-3">
+        <table ref="orderTable" class="table table-sm table-striped table-hover">
+            <thead>
+                <tr>
+                    <th is="sortable-column" value="1" v-bind:filter="order.filter" v-on:order-by-changed="orderBy" class="text-nowrap">Order No</th>
+                    <th is="sortable-column" value="1" v-bind:filter="order.filter" v-on:order-by-changed="orderBy" class="text-nowrap">Order Id</th>
+                    <th is="sortable-column" value="2" v-bind:filter="order.filter" v-on:order-by-changed="orderBy" class="text-nowrap">Product No</th>
+                    <th colspan="2" is="sortable-column" value="3" v-bind:filter="order.filter" v-on:order-by-changed="orderBy" class="text-end text-nowrap">Quantity</th>
+                    <th colspan="2" is="sortable-column" value="4" v-bind:filter="order.filter" v-on:order-by-changed="orderBy" class="text-end text-nowrap">Price (Ex Vat)</th>
+                    <th colspan="2" is="sortable-column" value="5" v-bind:filter="order.filter" v-on:order-by-changed="orderBy" class="text-end text-nowrap">Vat</th>
+                    <th colspan="2" is="sortable-column" value="6" v-bind:filter="order.filter" v-on:order-by-changed="orderBy" class="text-center text-nowrap">Order Date</th>
+                    <th colspan="2" is="sortable-column" class="text-nowrap">Status</th>
+                </tr>
+                <tr>
+                    <th><input type="text" class="form-control form-control-sm" placeholder="filter" v-model="order.filter.OrderNo"/></th>
+                    <th><input type="text" class="form-control form-control-sm" placeholder="filter" v-model="order.filter.ExternalOrderId"/></th>
+                    <th><input type="text" class="form-control form-control-sm" placeholder="filter" v-model="order.filter.ProductNo"/></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th><input is="date-picker" type="date" class="fixed-ddmmyyyy-width ms-auto" placeholder="min" v-model="order.filter.CreatedAtFrom" /></th>
+                    <th><input is="date-picker" type="date" class="fixed-ddmmyyyy-width" placeholder="max" v-model="order.filter.CreatedAtTo" /></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-if="!order.isLoading && order.items.length == 0">
+                    <td colspan="100%" class="text-center">Could not find any orders</td>
+                </tr>
+                <tr v-for="order in order.items" class="cursor-pointer" v-on:click="showOrderDetails(order)">
+                    <td>{{order.OrderNo}}</td>
+                    <td>{{order.ExternalId}}</td>
+                    <td>{{order.ProductNo}}</td>
+                    <td colspan="2" class="text-end">{{order.QuantityFormatted}}</td>
+                    <td colspan="2" class="text-end">{{order.PriceExVatFormatted}}</td>
+                    <td colspan="2" class="text-end">{{order.VatTotalFormatted}}</td>
+                    <td colspan="2" class="text-center">{{datetimeLong(order.CreatedAt)}}</td>
+                    <td v-bind:class="order.IsSynced ? 'text-success'  : 'text-danger'">
+                        <i class="bi bi-circle-fill"></i>
+                        <span class="ms-1">{{order.IsSynced ? 'Synced' : 'Not Synced'}}</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" ref="orderModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content" v-on-submit="saveOrder">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{order.details.OrderId > 0 ? order.details.OrderNo : "Create Order"}}</h5>
+                    <button type="button" class="btn btn-sm btn-link" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="bi bi-x h5"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row row-cols-1 g-2">
+                        <div>
+                            <label for="txtOrderNo" class="form-label">Order No</label>
+                            <input type="text" id="txtOrderNo"
+                                   placeholder="Order No"
+                                   required="required"
+                                   class="form-control form-control-sm"
+                                   v-model="order.details.OrderNo"
+                                   v-bind:disabled="order.details.OrderId > 0">
+                        </div>
+                        <div>
+                            <label for="txtProductNo" class="form-label">Product No</label>
+                            <input type="text" id="txtProductNo"
+                                   required="required"
+                                   placeholder="Order No" 
+                                   class="form-control form-control-sm" 
+                                   v-model="order.details.ProductNo"
+                                   v-bind:disabled="order.details.OrderId > 0">
+                        </div>
+
+                        <div class="row row-cols-3 g-2">
+                            <div>
+                                <label for="txtQuantity" class="form-label">Quantity</label>
+                                <input type="number" id="txtQuantity" min="0" step="0.01" 
+                                       required="required"
+                                       placeholder="Quantity"
+                                       class="form-control form-control-sm" 
+                                       v-model="order.details.Quantity"
+                                       v-bind:disabled="order.details.OrderId > 0">
+                            </div>
+                            <div>
+                                <label for="txtPriceExVat" class="form-label">Price (Ex Vat)</label>
+                                <input type="number" id="txtPriceExVat" min="0" step="0.01" 
+                                       required="required"
+                                       placeholder="Price (Ex Vat)" 
+                                       class="form-control form-control-sm" 
+                                       v-model="order.details.PriceExVat" 
+                                       v-bind:disabled="order.details.OrderId > 0">
+                            </div>
+                            <div>
+                                <label for="txtVatTotal" class="form-label">Vat</label>
+                                <input type="number" id="txtVatTotal" min="0" step="0.01"
+                                       required="required" 
+                                       placeholder="Vat" 
+                                       class="form-control form-control-sm"
+                                       v-model="order.details.VatTotal" 
+                                       v-bind:disabled="order.details.OrderId > 0">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" v-if="!order.details.OrderId > 0">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

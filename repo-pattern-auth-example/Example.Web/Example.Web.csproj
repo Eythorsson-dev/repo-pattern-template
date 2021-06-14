@@ -1,0 +1,105 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Content Remove="bundleconfig.json" />
+		<Content Remove="wwwroot\js\site.bundle.js" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Pages\Account\Login\login.js" />
+	  <None Remove="Pages\Account\PasswordReset\passwordReset.js" />
+	  <None Remove="Pages\Account\AccountVerify\AccountVerify.js" />
+	  <None Remove="Pages\Account\Register\register.js" />
+	  <None Remove="Pages\Dashboard\dashboard.js" />
+	  <None Remove="Pages\Order\order.js" />
+	  <None Remove="postcss.config.cjs" />
+	  <None Remove="purgecss.config.js.cjs" />
+	  <None Remove="tailwind.config.cjs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <_ContentIncludedByDefault Remove="wwwroot\js\site.bundle.js" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="Pages\Account\Login\login.js">
+	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+	  </Content>
+	  <Content Include="Pages\Account\PasswordReset\passwordReset.js">
+	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+	  </Content>
+	  <Content Include="Pages\Account\AccountVerify\accountVerify.js">
+	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+	  </Content>
+	  <Content Include="Pages\Account\Register\register.js">
+	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+	  </Content>
+	  <Content Include="Pages\Order\order.js">
+	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+	  </Content>
+	  <Content Include="Pages\Dashboard\dashboard.js">
+	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Example.Core\Example.Core.csproj" />
+		<ProjectReference Include="..\Example.Domain\Example.Domain.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="bundleconfig.json" />
+	  <None Include="wwwroot\js\site.bundle.js" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\alert.js" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\alert.js.map" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\base-component.js" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\base-component.js.map" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\button.js" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\button.js.map" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\carousel.js" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\carousel.js.map" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\collapse.js" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\collapse.js.map" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\dom\data.js" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\dom\data.js.map" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\dom\event-handler.js" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\dom\event-handler.js.map" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\dom\manipulator.js" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\dom\manipulator.js.map" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\dom\selector-engine.js" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\dom\selector-engine.js.map" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\dropdown.js" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\dropdown.js.map" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\modal.js" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\modal.js.map" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\offcanvas.js" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\offcanvas.js.map" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\popover.js" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\popover.js.map" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\scrollspy.js" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\scrollspy.js.map" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\tab.js" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\tab.js.map" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\toast.js" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\toast.js.map" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\tooltip.js" />
+	  <None Include="wwwroot\lib\bootstrap-5.0.1\js\tooltip.js.map" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="10.1.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.6" />
+	</ItemGroup>
+
+
+</Project>

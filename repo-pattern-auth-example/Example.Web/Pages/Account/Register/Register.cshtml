@@ -1,0 +1,57 @@
+﻿@page "~/Account/Register"
+@model Example.Web.Pages.RegisterModel
+@addTagHelper *, aspnetcore-vuecomponents
+
+@{ ViewData["Title"] = "Register"; Layout = "_Layout.Blank"; }
+
+@section Scripts {
+    <environment names="Development">
+        @Bundler.Unpack(HostingEnvironment.ContentRootPath, "Pages/Account/Register/register.bundle.js")
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="Pages/Account/Register/register.bundle.js" asp-append-version="true" />
+    </environment>
+}
+
+
+<div id="app" class="w-100 h-100">
+    <div class="d-flex justify-content-center align-items-center w-screen h-screen">
+        <div class="rounded-md shadow p-4 bg-white-pure mw-xs" v-on-submit="register">
+            <h3 class="mb-0">Welcome!</h3>
+            <p class="text-gray-400 ">See live stats of Wise Consulting software solutions!</p>
+
+            <div class="row row-cols-1 g-2">
+                <div>
+                    <div class="row row-cols-2 g-2">
+                        <div>
+                            <label for="FirstName" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="FirstName" placeholder="John" v-model="FirstName" required="required">
+                        </div>
+                        <div>
+                            <label for="LastName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="LastName" placeholder="John" v-model="LastName" required="required">
+                        </div>
+
+                    </div>
+                </div>
+                
+                <div>
+                    <label for="Email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="Email" placeholder="John@@example.com" v-model="Email" required="required">
+                </div>
+                <div class="mt-2">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control form-control-sm" id="password" placeholder="Pas***rd" v-model="Password" autocomplete="on" required="required">
+                </div>
+                <div class="mt-2">
+                    <label for="password2" class="form-label">Repeat Password</label>
+                    <input type="password" class="form-control form-control-sm" id="password2" placeholder="Pas***rd" v-model="Password2" autocomplete="on" required="required" v-submit-validator="()=> Password == Password2">
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-3 w-100">Register</button>
+                <a href="/account/login" class="btn btn-secondary mt-3 w-100">Login</a>
+            </div>
+
+        </div>
+    </div>
+</div>

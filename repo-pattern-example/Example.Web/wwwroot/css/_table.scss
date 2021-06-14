@@ -1,0 +1,138 @@
+﻿/*@import '_variables.scss';*/
+
+.table {
+    > thead {
+        th {
+            color: $gray-400;
+            border-bottom-width: 2px;
+
+            &.sortable-th:hover {
+                cursor: pointer;
+                color: $gray-500;
+            }
+        }
+    }
+
+    > tfoot {
+        * {
+            /*border-top*/
+        }
+    }
+
+    > thead, tbody, tfoot {
+        > tr {
+            > td, th{
+                &:first-child{
+                    padding-left: .6rem,
+                }
+
+                &:last-child{
+                    padding-right: .6rem,
+                }
+            }
+        }
+    }
+
+    > :last-child {
+        > :last-child > * {
+            border-bottom-color: currentColor !important;
+        }
+    }
+}
+.table > * > :last-child > * {
+    border-bottom-color: inherit !important;
+}
+
+.fixed-ddmmyyyy-width, .fixed-ddmmyyyy-width input {
+    width: 6em;
+}
+
+/*
+
+div.table-responsive {
+    &, &-xs, &-sm, &-md, &-md, &-lg, &-xl {
+        margin-top: .6rem;
+    }
+}
+
+.table {
+    td, th {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    td {
+        vertical-align: middle !important;
+    }
+
+    th {
+        color: $gray-600;
+        text-transform: capitalize;
+
+        i {
+            margin-left: .5rem;
+        }
+
+        
+
+        &
+    }
+
+    thead {
+        tr:nth-child(2) > th {
+            padding-left: .1rem;
+        }
+    }*/
+/*STICKY TH*/
+/*th {
+        position: sticky;
+        top: 0;
+        background: $white;
+        border: 0;
+        padding: 0;
+        box-shadow: 0 -0.1rem 0 0.01rem $border-color;
+        z-index: 10;
+    }
+
+    &.table-no-hover, .table-no-hover {
+        &:hover td, &:hover, tr:hover td, td:hover {
+            background-color: unset !important;
+        }
+    }
+
+    &.table-pointer, .table-pointer td {
+        cursor: pointer;
+    }
+
+    &.table-no-pointer td, .table-no-pointer td, td.table-no-pointer {
+        cursor: default !important;
+    }
+
+
+
+    thead tr:nth-child(2) th {
+        top: 2.1rem;
+        box-shadow: 0;
+    }
+
+    &.table-hover tbody {
+        tr:hover td {
+            color: $table-hover-color;
+            background-color: $table-hover-bg;
+        }
+    }
+}
+
+.bootstrap-datetimepicker-widget {
+    th, td {
+        border-top: none;
+        border-bottom: none;
+        white-space: unset;
+        box-shadow: none;
+    }
+
+    tr:hover {
+        background-color: unset;
+    }
+}*/
