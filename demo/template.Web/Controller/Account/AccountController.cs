@@ -40,9 +40,10 @@ namespace template.Web.Controller.Account
         public async Task<IActionResult> Login([FromBody] LoginDto dto)
         {
             var result = await SignInManager.PasswordSignInAsync(dto.Email, dto.Password, dto.RememberMe, lockoutOnFailure: false);
-            if (!result.Succeeded) throw new FeedbackException("Incorrect Username and/or password");
-            return Ok();
+            if (!result.Succeeded) 
+                throw new FeedbackException("Incorrect Username and/or password");
 
+            return Ok();
         }
 
         [HttpPost("register")]
@@ -52,15 +53,15 @@ namespace template.Web.Controller.Account
             var user = new UserModel(dto.FirstName, dto.LastName, dto.Email, dto.PhoneNumber);
             var result = await UserManager.CreateAsync(user, dto.Password);
 
-            if (result.Succeeded) {
-                var code = await UserManager.GenerateEmailConfirmationTokenAsync(user);
-                await MailService.SendEmailConfirmationAsync(dto.Email, code);
+            if (!result.Succeeded)
+                throw new FeedbackException(result.Errors.ToList().First().Description);
 
-                await SignInManager.SignInAsync(user, isPersistent: false);
-                return Ok();
-            }
+            var code = await UserManager.GenerateEmailConfirmationTokenAsync(user);
+            await MailService.SendEmailConfirmationAsync(dto.Email, code);
 
-            return BadRequest();
+            await SignInManager.SignInAsync(user, isPersistent: false);
+            return Ok();
+
         }
 
         [HttpPost("logout")]
@@ -84,7 +85,7 @@ namespace template.Web.Controller.Account
         public async Task<IActionResult> ForgotPassword(ForgotPasswordDto dto)
         {
             var user = await UserManager.FindByEmailAsync(dto.Email);
-            if (user == null) 
+            if (user == null)
                 // Don't revel that the user does not exist
                 return Ok();
 
@@ -106,10 +107,10 @@ namespace template.Web.Controller.Account
                 return Ok(); // Don't reveal that the user does not exist
 
             var result = await UserManager.ResetPasswordAsync(user, dto.Code, dto.Password);
-            if (result.Succeeded) 
-                return Ok();
+            if (!result.Succeeded)
+                throw new FeedbackException(result.Errors.ToList().First().Description);
 
-            return BadRequest(result.Errors.ToList().First().Description);
+            return Ok();
         }
 
         [HttpPost("resendAccountVerify")]
@@ -129,10 +130,11 @@ namespace template.Web.Controller.Account
                 return Ok(); // Don't reveal that the user does not exist
 
             var result = await UserManager.ConfirmEmailAsync(user, dto.Code);
-            if (result.Succeeded) 
-                return Ok();
+            if (!result.Succeeded)
+                throw new FeedbackException(result.Errors.ToList().First().Description);
 
-            return BadRequest();
+            return Ok();
+
         }
     }
 }
