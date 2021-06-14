@@ -34,7 +34,10 @@ In the solution explorer (Visual Studio) right click on the template.Web project
 After having choosen template.Web, run the applicaiton.
 
 
+## Install Solution Template
+By copying the `repo-pattern.zip` file into the `\Documents\Visual Studio 2019\Templates\ProjectTemplates` directory will visual studio setup the solution for you.
 
+Note: Do no check "Place solution and project in the same directory"
 
 # TODO
  - Add Permission support
