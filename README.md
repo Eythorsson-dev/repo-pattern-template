@@ -5,7 +5,11 @@ This is a demo application and will only be used in demonstrations of Wise Consu
 This application is written in Asp.Net Core, uses Vue (v2.6), and Bootstrap 5 as its frontend frameworks.
 Vue 2.6 was choosen in favor of the newly released Vue 3 due to it's support of using multiple spa apps (as this pattern uses one spa app per page, insted of the convensional one spa app with multiple pages).
 
+The web application includes features such as:
+ - Keyboard Shortcuts
+ - Vue Submit Validaton (custom and default)
 
+<hr />
 # How to start the project
 This mini-guide presumes you are using visual studo.
 
@@ -28,3 +32,12 @@ The easies way to setup the database without data is to use the included databas
 ## Run the application
 In the solution explorer (Visual Studio) right click on the template.Web project and select it as the startup project.
 After having choosen template.Web, run the applicaiton.
+
+
+
+
+# TODO
+ - Add Permission support
+ - Add Release enviroment
+ - Multi-Client / User specific
+ - Datepicker: Range, min date, max date
