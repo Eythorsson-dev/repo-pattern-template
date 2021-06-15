@@ -17,7 +17,6 @@ using System.Threading.Tasks;
 
 namespace Example.Core.Security
 {
-    // TODO; READ ABOUT ASYNC VS SYNC: https://gokhansengun.com/asp-net-mvc-and-web-api-comparison-of-async-or-sync-actions/
     public class UserStore :
         IUserStore<UserModel>,
         IUserEmailStore<UserModel>,

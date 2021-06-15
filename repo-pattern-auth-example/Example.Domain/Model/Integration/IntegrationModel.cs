@@ -1,7 +1,6 @@
 ﻿using Example.Domain.Enum.Integration;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Example.Domain.Model.Integration
 {

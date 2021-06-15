@@ -1,6 +1,5 @@
 ﻿using Example.Core.Repository;
 using Example.Core.Request.User.Role;
-using Example.Domain;
 using Example.Domain.Model.User;
 using System;
 using System.Collections.Generic;

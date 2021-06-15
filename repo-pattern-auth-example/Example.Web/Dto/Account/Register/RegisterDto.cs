@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Example.Web.Dto.Register
+﻿namespace Example.Web.Dto.Register
 {
     public class RegisterDto
     {

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Example.Domain.Enum
+﻿namespace Example.Domain.Enum
 {
     public enum UserPreferenceEnum
     {

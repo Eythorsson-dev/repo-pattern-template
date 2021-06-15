@@ -1,5 +1,4 @@
 ﻿using Example.Core;
-using Example.Core.Infrastructure.Filters;
 using Example.Core.Request.User;
 using Example.Core.Service;
 using Example.Core.Service.Log;

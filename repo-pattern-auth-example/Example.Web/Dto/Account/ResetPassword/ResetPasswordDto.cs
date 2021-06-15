@@ -1,5 +1,4 @@
-﻿
-namespace Example.Web.Dto.Account.ResetPassword
+﻿namespace Example.Web.Dto.Account.ResetPassword
 {
     public class ResetPasswordDto
     {

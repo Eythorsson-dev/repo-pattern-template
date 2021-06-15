@@ -1,5 +1,4 @@
-﻿
-namespace Example.Web.Dto.User
+﻿namespace Example.Web.Dto.User
 {
     public class UserDto
     {

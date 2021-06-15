@@ -1,11 +1,7 @@
 ﻿using Example.Controller;
-using Example.Core.Request.User.Preference;
 using Example.Core.Service.User.Preference;
 using Example.Domain.Enum;
-using Example.Domain.Model.User;
 using Example.Web.Config.Mapper;
-using Example.Web.Dto.Login;
-using Example.Web.Dto.Register;
 using Example.Web.Dto.User.Preference;
 using Microsoft.AspNetCore.Mvc;
 

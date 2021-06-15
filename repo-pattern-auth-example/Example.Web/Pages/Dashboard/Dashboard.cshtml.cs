@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-
-namespace Example.Web.Pages
+﻿namespace Example.Web.Pages
 {
     public class DashboardModel : BasePage
     {

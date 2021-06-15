@@ -1,7 +1,4 @@
 ﻿using Example.Domain.Enum;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Example.Domain.Model.User.Preference
 {
