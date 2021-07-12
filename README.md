@@ -46,3 +46,4 @@ By copying the `repo-pattern.zip` file into the `\Documents\Visual Studio 2019\T
  - Edit login, register and password reset to use form instead of div on the v-on-submit
  - Manual password security
  - Emails (design)
+ - Even more basic example
