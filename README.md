@@ -47,3 +47,4 @@ By copying the `repo-pattern.zip` file into the `\Documents\Visual Studio 2019\T
  - Manual password security
  - Emails (design)
  - Even more basic example
+ - GetDescription Fallback
