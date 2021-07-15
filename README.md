@@ -48,3 +48,5 @@ By copying the `repo-pattern.zip` file into the `\Documents\Visual Studio 2019\T
  - Emails (design)
  - Even more basic example
  - GetDescription Fallback
+ - Save button loader
+
